@@ -33,7 +33,7 @@ HideOnScroll.propTypes = {
 const NavBar = (props) => {
   return (
     <>
-      <React.Fragment>
+      {/* <React.Fragment>
         <CssBaseline />{" "}
         <HideOnScroll {...props}>
           {" "}
@@ -57,7 +57,7 @@ Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`
               .join("\n")}
           </Box>
         </Container>
-      </React.Fragment>
+      </React.Fragment> */}
     </>
   );
 };

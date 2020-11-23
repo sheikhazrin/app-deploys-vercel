@@ -1,46 +1,39 @@
 import React from "react";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { Router } from "react-router-dom";
-
-import history from "./services/History";
+import { Container } from "reactstrap";
+import theme from "./themes";
 import Routes from "./routes";
 
 import { useAuth0 } from "@auth0/auth0-react";
-
+import history from "./services/History";
 import Loading from "./components/Loading";
 
+import { ThemeProvider } from "@material-ui/core/styles";
+import { Paper, CssBaseline } from "@material-ui/core";
 
 // import "./App.css";
 // import GlobalStyles from "./styles/";
 
 function App() {
-  const [setDate] = useState(null);
   const { isLoading, error } = useAuth0();
-
-  if (error) {
-    return <div>Oops... {error.message}</div>;
-  }
-
   if (isLoading) {
     return <Loading />;
   }
-
-  useEffect(() => {
-    async function getDate() {
-      const res = await fetch("/api/date");
-      const newDate = await res.text();
-      setDate(newDate);
-    }
-    getDate();
-  }, []);
-
+  if (error) {
+    return <div>Oops... {error.message}</div>;
+  }
   return (
-    <Router history={history}>
-      <Routes />
-      {/* <GlobalStyles /> */}
-      {/* <main></main> */}
-    </Router>
+    <div id="app" className="Container">
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Paper>
+          <Router history={history}>
+            <Routes />
+          </Router>
+        </Paper>
+      </ThemeProvider>
+    </div>
   );
 }
-
 export default App;

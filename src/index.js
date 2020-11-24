@@ -1,19 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter } from 'react-router-dom';
+
 import "./index.css";
 import App from "./App";
-import { Auth0Provider } from "@auth0/auth0-react";
 
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
-  <Auth0Provider
-    domain="careetor.us.auth0.com"
-    clientId="xRnWO6IOXqUhZUvF1ptofy6dN660oler"
-    redirectUri="{window.location.origin}"
-  >
-    <App />
-  </Auth0Provider>,
+  <BrowserRouter>
+  <App />
+  </BrowserRouter>,
   document.getElementById("root")
 );
 

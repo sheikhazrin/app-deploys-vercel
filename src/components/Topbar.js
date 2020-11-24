@@ -8,6 +8,7 @@ import {
 	ListItem,
 	Typography,
 	IconButton
+	// Button
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 
@@ -128,7 +129,7 @@ Image.propTypes = {
 	lazy: PropTypes.bool
 };
 
-const NavBar = (props) => {
+const Topbar = (props) => {
 	const { onSidebarOpen, pages, ...rest } = props;
 	const classes = useStyles();
 
@@ -164,7 +165,7 @@ const NavBar = (props) => {
 							color="textSecondary"
 							className={classes.listItemText}
 							component="a"
-							href="/signup-simple"
+							href="/login"
 						>
 							Sign up
 						</Typography>
@@ -207,4 +208,4 @@ const NavBar = (props) => {
 	);
 };
 
-export default NavBar;
+export default Topbar;
